@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 50,
     paddingVertical: 9,
-    // marginLeft: 32,
   },
   notbutton: {
     // paddingHorizontal: 19,
