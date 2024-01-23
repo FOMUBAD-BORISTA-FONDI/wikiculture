@@ -31,9 +31,11 @@ const SearchScreen = () => {
         <View style={styles.sectionContainer}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>History</Text>
+
             {/* <TouchableOpacity onPress={() => {}}>
               <FontAwesome name="ellipsis-v" size={24} color="#888" />
             </TouchableOpacity> */}
+            
           </View>
         </View>
 
@@ -110,8 +112,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 310, // Adjust the width as needed
-    height: 430, // Adjust the height as needed
+    width: 310, 
+    height: 430, 
     borderRadius: 10,
   },
 });
