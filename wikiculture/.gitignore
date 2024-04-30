@@ -1,0 +1,11 @@
+venv
+.idea
+.env
+env/
+__pycache__/
+.next
+
+node_modules
+mediafiles
+rabbitmq_data
+.vscode

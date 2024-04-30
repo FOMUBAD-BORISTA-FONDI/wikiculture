@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  articles_service:
+    image: article
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8005:8005"
+    command: ["python", "manage.py", "runserver", "8005"]
+    container_name: articles_service
+    restart: unless-stopped
+    networks:
+      - wikiculture_network
+    volumes:
+      - .:/moderator
+
+  consumer:
+    image: article
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python","consumer.py"]
+    restart: unless-stopped
+    depends_on:
+      - articles_service
+    networks:
+      - wikiculture_network
+
+networks: 
+  wikiculture_network:
+    driver: bridge

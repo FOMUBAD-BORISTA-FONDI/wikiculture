@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  media_servicea:
+    image: media
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8003"
+    volumes:
+      - .:/media_files
+    command: ["python", "manage.py", "runserver", "8003"]
+    container_name: media_service
+    restart: unless-stopped
+    networks:
+      - wikiculture_network
+    volumes:
+      - .:/media_files
+
+  consumer:
+    image: media
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python","consumer.py"]
+    restart: unless-stopped
+    depends_on:
+      - media_service
+    networks:
+      - wikiculture_network
+
+networks: 
+  wikiculture_network:
+    driver: bridge
