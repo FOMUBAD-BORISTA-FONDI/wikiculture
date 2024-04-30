@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  user_service:
+    image: user
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/users
+    ports:
+      - "8000:8000"
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    container_name: user_service
+    networks:
+      - wikiculture_network
+
+networks: 
+  wikiculture_network:
+    driver: bridge
