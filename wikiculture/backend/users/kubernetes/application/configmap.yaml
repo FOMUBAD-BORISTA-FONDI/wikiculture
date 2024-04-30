@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: users-config
-data:
-  DEBUG: 'True'
-  DB_NAME: ''
-  DB_HOST: ''
-  DB_PORT: ''
